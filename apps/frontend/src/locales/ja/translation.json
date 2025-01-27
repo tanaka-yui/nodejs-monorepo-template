@@ -1,0 +1,40 @@
+{
+  "menu": {
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "home": "ホーム",
+    "user_register": "ユーザー登録",
+    "user_list": "ユーザー一覧",
+    "user_edit": "ユーザー編集"
+  },
+  "action": {
+    "next": "次へ",
+    "prev": "前へ",
+    "edit": "編集",
+    "create": "登録する",
+    "update": "更新する",
+    "cancel": "キャンセル",
+    "delete": "削除する",
+    "detail": "詳細",
+    "back": "戻る",
+    "login": "ログイン",
+    "send": "送信"
+  },
+  "message": {
+    "create_failed": "登録に失敗しました。",
+    "create_confirm": "登録しますか？",
+    "create_success": "登録しました。",
+    "update_confirm": "更新しますか？",
+    "update_success": "更新しました。",
+    "update_failed": "更新に失敗しました。",
+    "delete_confirm": "削除しますか？",
+    "delete_confirm_with_name": "「{{name}}」を削除しますか？",
+    "delete_success": "削除しました。",
+    "delete_failed": "削除に失敗しました。",
+    "failed_login": "ログインに失敗しました。"
+  },
+  "label": {
+    "name": "名前",
+    "user": "ユーザー"
+  }
+}

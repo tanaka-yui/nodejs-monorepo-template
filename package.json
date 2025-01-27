@@ -1,0 +1,37 @@
+{
+  "name": "nodejs-mono-repo",
+  "private": true,
+  "author": "tanaka-yui",
+  "license": "MIT",
+  "scripts": {
+    "build": "turbo build",
+    "check": "turbo check --filter=!@nodejs-mono-repo/typescript-config",
+    "check:fix": "turbo check:fix --filter=!@nodejs-mono-repo/typescript-config",
+    "dev": "turbo dev --filter=./apps/*",
+    "format": "turbo format --filter=!@nodejs-mono-repo/typescript-config",
+    "format:fix": "turbo format:fix --filter=!@nodejs-mono-repo/typescript-config",
+    "lint": "turbo lint --filter=!@nodejs-mono-repo/typescript-config",
+    "lint:fix": "turbo lint:fix --filter=!@nodejs-mono-repo/typescript-config",
+    "setup-local": "pnpm -F=@nodejs-mono-repo/api copyenv && pnpm -F=@nodejs-mono-repo/api db:generate && pnpm -F=@nodejs-mono-repo/api db:migrate && pnpm -F=@nodejs-mono-repo/api db:seed",
+    "sort-package": "sort-package-json --check && sort-package-json --check apps/**/package.json && sort-package-json --check packages/**/package.json",
+    "sort-package:fix": "sort-package-json && sort-package-json apps/**/package.json && sort-package-json packages/**/package.json",
+    "ssm:login:dev": "zx setup.mjs sso-login-dev",
+    "ssm:login:prod": "zx setup.mjs sso-login-prod",
+    "ssm:login:stg": "zx setup.mjs sso-login-stg",
+    "ssm:tunnel:dev": "zx setup.mjs ssm-tunnel-dev",
+    "ssm:tunnel:prod": "zx setup.mjs ssm-tunnel-prod",
+    "ssm:tunnel:stg": "zx setup.mjs ssm-tunnel-stg"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "sort-package-json": "2.14.0",
+    "turbo": "2.3.4",
+    "typescript": "5.7.3",
+    "zx": "8.3.0"
+  },
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": "22.13.1",
+    "pnpm": "9.15.4"
+  }
+}

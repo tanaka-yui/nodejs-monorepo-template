@@ -1,0 +1,27 @@
+{
+	"name": "@nodejs-mono-repo/utils",
+	"version": "0.0.0",
+	"private": true,
+	"license": "MIT",
+	"main": "./src/index.ts",
+	"types": "./src/index.ts",
+	"scripts": {
+		"check": "biome check ./src",
+		"check:fix": "biome check --write ./src",
+		"dev": "vite",
+		"format": "biome format ./src",
+		"format:fix": "biome format --write ./src",
+		"lint": "biome lint ./src",
+		"lint:fix": "biome lint --write ./src"
+	},
+	"dependencies": {
+		"date-fns": "4.1.0"
+	},
+	"devDependencies": {
+		"@nodejs-mono-repo/typescript-config": "workspace:*",
+		"@tsconfig/strictest": "2.0.5"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
