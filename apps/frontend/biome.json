@@ -1,0 +1,15 @@
+{
+  "extends": ["../../biome.json"],
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "noUndeclaredVariables": "error",
+        "noUnusedVariables": "info",
+        "noUnusedImports": "info"
+      }
+    },
+    "ignore": ["src/routeTree.gen.ts", "src/gen/**"]
+  }
+}

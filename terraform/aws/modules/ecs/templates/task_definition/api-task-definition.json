@@ -1,0 +1,116 @@
+[
+  {
+    "name": "${name}",
+    "image": "${repository_url_app}",
+    "essential": true,
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+      "FARGATE"
+    ],
+    "logConfiguration": {
+      "logDriver": "awsfirelens"
+    },
+    "secrets": [
+      {
+        "valueFrom": "${secret_arn}:database_name::",
+        "name": "DB_DATABASE"
+      },
+      {
+        "valueFrom": "${secret_arn}:username::",
+        "name": "DB_USERNAME"
+      },
+      {
+        "valueFrom": "${secret_arn}:password::",
+        "name": "DB_PASSWORD"
+      },
+      {
+        "valueFrom": "${secret_arn}:port::",
+        "name": "DB_PORT"
+      },
+      {
+        "valueFrom": "${secret_arn}:writer_endpoint::",
+        "name": "DB_HOST_WRITER"
+      },
+      {
+        "valueFrom": "${secret_arn}:reader_endpoint::",
+        "name": "DB_HOST_READER"
+      }
+    ],
+    "environment": [
+      {
+        "name": "REDIS_HOST",
+        "value": "${redis_host}"
+      },
+      {
+        "name": "REDIS_PORT",
+        "value": "${redis_port}"
+      }
+    ],
+    "mountPoints": [],
+    "cpu": 0,
+    "volumesFrom": [],
+    "ulimits": [
+      {
+        "name": "nofile",
+        "softLimit": 100000,
+        "hardLimit": 100000
+      }
+    ]
+  },
+  {
+    "name": "log_router",
+    "user": "0",
+    "image": "${repository_url_fluent_bit}",
+    "cpu": 128,
+    "memoryReservation": 256,
+    "essential": true,
+    "requiresCompatibilities": ["FARGATE"],
+    "firelensConfiguration": {
+      "type": "fluentbit",
+      "options": {
+        "config-file-type": "file",
+        "config-file-value": "/${fluent_bit_conf}",
+        "enable-ecs-log-metadata": "false"
+      }
+    },
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${firelens_log_group}",
+        "awslogs-region": "${region}",
+        "awslogs-create-group": "true",
+        "awslogs-stream-prefix": "firelens"
+      }
+    },
+    "environment": [
+      {
+        "name": "REGION",
+        "value": "${region}"
+      },
+      {
+        "name": "BUCKET",
+        "value": "${bucket}"
+      },
+      {
+        "name": "TOTAL_FILE_SIZE",
+        "value": "${total_file_size}"
+      },
+      {
+        "name": "UPLOAD_TIMEOUT",
+        "value": "${upload_timeout}"
+      },
+      {
+        "name": "APP_LOG_GROUP_NAME",
+        "value": "${app_log_group_name}"
+      },
+      {
+        "name": "KEY_PREFIX",
+        "value": "${key_prefix}"
+      }
+    ],
+    "mountPoints": [],
+    "portMappings": [],
+    "volumesFrom": []
+  }
+]
+

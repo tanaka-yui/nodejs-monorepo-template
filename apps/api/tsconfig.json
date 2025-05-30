@@ -1,0 +1,12 @@
+{
+  "extends": "@nodejs-mono-repo/typescript-config/tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*", "prisma/seeds/**/*"],
+  "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
+}

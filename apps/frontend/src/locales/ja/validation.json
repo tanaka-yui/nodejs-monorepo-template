@@ -1,0 +1,53 @@
+{
+  "mixed": {
+    "default": "{{label}}は無効です",
+    "required": "{{label}}は必須です",
+    "oneOf": "{{label}}は次の値のいずれかである必要があります: {{values}}",
+    "notOneOf": "{{label}}は次の値のいずれでもない必要があります: {{values}}",
+    "notNull": "{{label}}はnullであってはなりません",
+    "notType": "{{label}}は有効な型ではありません",
+    "defined": "{{label}}は定義されている必要があります"
+  },
+  "string": {
+    "required": "{{label}}は必須です",
+    "length": "{{label}}は{{length}}文字で入力してください",
+    "min": "{{label}}は{{min}}文字以上で入力してください",
+    "max": "{{label}}は{{max}}文字以下で入力してください",
+    "matches": "{{label}}は次の正規表現と一致する必要があります: {{regex}}",
+    "email": "{{label}}は有効なメールアドレスではありません",
+    "url": "{{label}}は有効なURLではありません",
+    "uuid": "{{label}}は有効なUUIDではありません",
+    "datetime": "{{label}}は有効な日時ではありません",
+    "datetime_offset": "{{label}}は有効な日時ではありません",
+    "datetime_precision": "{{label}}は有効な日時ではありません",
+    "trim": "{{label}}はトリムされた文字列でなければなりません",
+    "lowercase": "{{label}}は小文字で入力してください",
+    "uppercase": "{{label}}は大文字で入力してください"
+  },
+  "number": {
+    "required": "{{label}}は必須です",
+    "min": "{{label}}は{{min}}以上で入力してください",
+    "max": "{{label}}は{{max}}以下で入力してください",
+    "lessThan": "{{label}}は{{less}}未満で入力してください",
+    "moreThan": "{{label}}は{{more}}より大きくしてください",
+    "notEqual": "{{label}}は{{notEqual}}と等しくない必要があります",
+    "positive": "{{label}}は正の数でにしてください",
+    "negative": "{{label}}は負の数でにしてください",
+    "integer": "{{label}}は整数で入力してください"
+  },
+  "date": {
+    "min": "{{label}}は{{min}}より後にしてください",
+    "max": "{{label}}は{{max}}より前にしてください"
+  },
+  "boolean": {
+    "isValue": "{{label}}はtrueまたはfalseで入力してください"
+  },
+  "object": {
+    "noUnknown": "{{label}}は次のキーを持つことができません: {{unknown}}"
+  },
+  "array": {
+    "length": "{{label}}は{{length}}個必要です",
+    "min": "{{label}}は{{min}}個以上の項目が必要です",
+    "max": "{{label}}は{{max}}個以下の項目が必要です"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "@nodejs-mono-repo/api",
+  "version": "0.0.1",
+  "private": true,
+  "description": "",
+  "license": "UNLICENSED",
+  "author": "",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --isolatedModules",
+    "check": "biome check ./src",
+    "check:fix": "biome check --write ./",
+    "copyenv": "cp ./envs/.env.local .env",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev --skip-seed",
+    "db:reset:local": "prisma migrate reset -f --skip-seed && pnpm db:generate && pnpm db:seed",
+    "db:seed": "tsx prisma/seeds/index.ts",
+    "dev": "tsx --watch src/main.mts",
+    "format": "biome format ./src",
+    "format:fix": "biome format --write ./",
+    "lint": "biome lint ./src",
+    "lint:fix": "biome lint --write ./"
+  },
+  "dependencies": {
+    "@fastify/awilix": "7.0.0",
+    "@fastify/caching": "9.0.3",
+    "@fastify/env": "5.0.2",
+    "@fastify/helmet": "13.0.1",
+    "@fastify/swagger": "9.4.2",
+    "@fastify/swagger-ui": "5.2.1",
+    "@gquittet/graceful-server": "5.2.9",
+    "@nodejs-mono-repo/utils": "workspace:*",
+    "@prisma/client": "6.2.1",
+    "@prisma/extension-read-replicas": "0.4.0",
+    "awilix": "12.0.4",
+    "fastify": "5.2.1",
+    "fastify-plugin": "5.0.1",
+    "prisma": "6.2.1",
+    "yup": "1.6.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@faker-js/faker": "9.4.0",
+    "@nodejs-mono-repo/typescript-config": "workspace:*",
+    "@types/node": "22.10.10",
+    "tsx": "4.19.2",
+    "typescript": "5.7.3"
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma",
+    "seed": "prisma/seeds/index.ts"
+  }
+}
